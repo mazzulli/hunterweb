@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
+import { Redirect, Link } from 'react-router-dom';
+
 import api from '../../services/api';
+import './styles.css';
 
 export default class Product extends Component {
   state = {
     product: {},
+  };
+
+  voltar = () => {
+    return <Redirect to='/'></Redirect>;
   };
 
   async componentDidMount(){
@@ -26,6 +33,9 @@ export default class Product extends Component {
         <p>
           URL: <a href={product.url}>{product.url}</a>  
         </p>
+        <br />
+
+        <Link to="/" className="btn-voltar">Voltar</Link>
       </div>
     );
   }
